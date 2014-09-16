@@ -6,6 +6,27 @@
 
 ;;;============================================================================
 
+;;; Provides operations on nonnegative integers.
+
+;;;============================================================================
+
+(define-library (https://github.com/feeley/nonneg-integer)
+
+  (export nonneg-integer->digits
+          digits->nonneg-integer
+          nonneg-integer->u8vector
+          u8vector->nonneg-integer
+          nonneg-integer->base64-string
+          base64-string->nonneg-integer
+          nonneg-integer-expt-mod)
+
+  (import (gambit)
+          (https://github.com/feeley/base64))
+
+  (begin
+
+;;;============================================================================
+
 (declare
   (standard-bindings)
   (extended-bindings)
@@ -93,5 +114,7 @@
            (modulo (* n (expt-mod n (- e 1) m)) m))))
 
   (expt-mod x y m))
+
+))
 
 ;;;============================================================================
